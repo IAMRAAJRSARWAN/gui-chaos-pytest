@@ -56,3 +56,16 @@ class GenericFunct:
                     print(f"{file_name} does not exist, skipping deletion.")
             except Exception as e:
                 print(f"Error deleting {file_name}: {e}")
+
+        files_to_delete = ['diff_image.png']
+
+        for file_name in files_to_delete:
+            file_path = os.path.join(baseDir, 'fixtures', 'screenshots', file_name )
+            try:
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                    print(f"Deleted {file_name} successfully.")
+                else:
+                    print(f"{file_name} does not exist, skipping deletion.")
+            except Exception as e:
+                print(f"Error deleting {file_name}: {e}")
