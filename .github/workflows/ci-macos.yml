@@ -9,104 +9,40 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: macos-latest
 
     steps:
-      # Checkout the repository
+      # Cloning Repo
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      # Set up Python
+      # Setup Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
-      # Cache dependencies
-      - name: Cache Poetry dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/pypoetry
-            ~/.cache/pip
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-poetry-
-
-      # Install Poetry and dependencies
-      - name: Install Poetry and dependencies
+      # Install Poetry
+      - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry config virtualenvs.create false
           poetry install
 
 
-  test:
-    # Run the 'test' job only after 'build' completes
-    needs: build
-    runs-on: macos-latest
-
-    steps:
-      # Checkout the repository
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-
-      # Set up Python
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
-
-      # Restore dependencies from cache
-      - name: Restore Poetry dependencies from cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/pypoetry
-            ~/.cache/pip
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-poetry-
-
-      # Run tests
+      #Run Tests
       - name: Run tests with pytest
         run: |
-          poetry run pytest --alluredir=allure-results
+          poetry run pytest
         continue-on-error: true
-
-  report:
-    # Run the 'report' job only after 'test' completes
-    needs: test
-    runs-on: macos-latest
-
-    steps:
-      # Checkout the repository
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-
-      # Set up Python
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
-
-      # Restore dependencies from cache
-      - name: Restore Poetry dependencies from cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/pypoetry
-            ~/.cache/pip
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-poetry-
 
       # Generate Allure HTML Report
       - name: Generate Allure HTML Report
         if: always()
         run: |
           allure generate allure-results --clean -o allure-report
+
 
       # Upload Allure report as GitHub Artifact
       - name: Upload Allure Report
