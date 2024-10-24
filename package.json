@@ -1,0 +1,16 @@
+{
+  "name": "gui-chaos-pytest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test:pytest": "pytest",
+    "allure:report": "allure serve allure-results"
+  },
+  "keywords": [],
+  "author": "Saravanan Rajamanickam",
+  "license": "ISC",
+  "description": "Chaos GUI Image Test Challenege"
+}

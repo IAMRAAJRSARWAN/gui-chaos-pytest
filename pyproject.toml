@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "gui-chaos-pytest"
+version = "0.1.0"
+description = "Chaos GUI Image Verification Test Challenge"
+authors = ["Saravanan Rajamanickam"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+black = "^24.10.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+allure-pytest = "^2.13.5"
+PyAutoGUI = "^0.9.54"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+skip-string-normalization = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "--alluredir=allure-results"
+
