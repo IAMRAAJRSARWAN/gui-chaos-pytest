@@ -110,6 +110,8 @@ Report URL: https://iamraajrsarwan.github.io/gui-chaos-pytest/index.html
 To Build and Show Report: Required JDK/JRE in Local
     allure serve allure-results | npm run allure:report
     
+![img.png](report.png)
+
 ```
 
 ## Authors
