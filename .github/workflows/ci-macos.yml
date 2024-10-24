@@ -30,12 +30,6 @@ jobs:
           poetry config virtualenvs.create false
           poetry install
 
-      # Install Dependencies
-      - name: Install system dependencies
-        run: |
-          brew install --cask preview  # Ensures Preview app is available for testing
-          brew install pillow  # For image processing
-
       #Run Tests
       - name: Run tests with pytest
         run: |
