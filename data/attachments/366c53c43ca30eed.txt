@@ -1,0 +1,2 @@
+Error: The file '/fixtures/images/IMAGE_1.png' was not found.
+Error: The file '/fixtures/images/IMAGE_2.png' was not found.
