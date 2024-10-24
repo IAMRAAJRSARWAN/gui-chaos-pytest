@@ -1,4 +1,4 @@
 Error comparing images: [Errno 2] No such file or directory: '/Users/runner/work/gui-chaos-pytest/gui-chaos-pytest/fixtures/images/IMAGE_1.jpg'
 Preview app closed successfully.
 IMAGE_1.jpg does not exist, skipping deletion.
-Deleted REF_Image.png successfully.
+REF_Image.png does not exist, skipping deletion.
