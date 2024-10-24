@@ -43,6 +43,8 @@ jobs:
 
 
   test:
+    # Run the 'test' job only after 'build' completes
+    needs: build
     runs-on: macos-latest
 
     steps:
@@ -74,6 +76,8 @@ jobs:
         continue-on-error: true
 
   report:
+    # Run the 'report' job only after 'test' completes
+    needs: test
     runs-on: macos-latest
 
     steps:
