@@ -16,13 +16,11 @@ jobs:
       # Cloning Repo
       - name: Checkout the repository
         uses: actions/checkout@v3
-
       # Setup Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.13'
-
       # Install Poetry and Allure
       - name: Install Poetry
         run: |
@@ -37,7 +35,6 @@ jobs:
         run: |
           poetry run pytest
         continue-on-error: true
-
       # Generate Allure HTML Report
       - name: Generate Allure HTML Report
         if: always()
@@ -53,7 +50,6 @@ jobs:
         with:
           name: allure-results
           path: allure-results
-
       # Deploy Allure Report to GitHub Pages
       - name: Deploy Allure Report to GitHub Pages
         if: ${{ github.ref == 'refs/heads/main' }}
