@@ -1,0 +1,57 @@
+name: macOS CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      # Cloning Repo
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # Setup Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      # Install Poetry
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          poetry config virtualenvs.create false
+          poetry install
+
+      # Install Dependencies
+      - name: Install system dependencies
+        run: |
+          brew install --cask preview  # Ensures Preview app is available for testing
+          brew install pillow  # For image processing
+
+      #Run Tests
+      - name: Run tests with pytest
+        run: |
+          poetry run pytest --alluredir=allure-results
+
+      # Upload Allure report as GitHub Artifact
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results
+
+      # Deploy Allure Report to GitHub Pages
+      - name: Deploy Allure Report to GitHub Pages
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
