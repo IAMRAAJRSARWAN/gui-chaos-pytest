@@ -23,12 +23,13 @@ jobs:
         with:
           python-version: '3.13'
 
-      # Install Poetry
+      # Install Poetry and Allure
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry config virtualenvs.create false
           poetry install
+          brew install allure
 
 
       #Run Tests
