@@ -1,0 +1,2 @@
+REF_Image.png 1
+Error: The file '/Users/runner/work/gui-chaos-pytest/gui-chaos-pytest/fixtures/images/REF_Image.png' was not found.
