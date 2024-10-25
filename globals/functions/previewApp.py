@@ -14,7 +14,7 @@ class PreviewAppFunct:
             time.sleep(2)  # Wait for the application to launch
             return True
         except FileNotFoundError as e:
-            print("Error Opening Application: {e}")
+            print(f"Error Opening Application: {e}")
             return False
 
     @staticmethod
@@ -27,19 +27,17 @@ class PreviewAppFunct:
 
         directory, file_name = os.path.split(image_path)
 
-        # Open the Preview application
-        if PreviewAppFunct.openApplication('Preview'):
-            pyautogui.hotkey('command', 'o')
-            time.sleep(1)  # Wait for the dialog to open
+        pyautogui.hotkey('command', 'o')
+        time.sleep(1)  # Wait for the dialog to open
 
-            pyautogui.write(directory, interval=0.05)
-            pyautogui.press('enter')
-            time.sleep(1)  # Wait for the directory to open
+        pyautogui.write(directory, interval=0.05)
+        pyautogui.press('enter')
+        time.sleep(1)  # Wait for the directory to open
 
-            pyautogui.write(file_name, interval=0.05)
-            pyautogui.press('enter')  # Select the file
-            time.sleep(2)  # Wait for the image to load in Preview
-            return True
+        pyautogui.write(file_name, interval=0.05)
+        pyautogui.press('enter')  # Select the file
+        time.sleep(2)  # Wait for the image to load in Preview
+
         return False
 
     @staticmethod
@@ -99,6 +97,7 @@ class PreviewAppFunct:
         try:
             # Kill the Preview app
             subprocess.call(['pkill', 'Preview'])
+            time.sleep(2)
             print("Preview app closed successfully.")
         except Exception as e:
             print(f"Error closing Preview app: {e}")
