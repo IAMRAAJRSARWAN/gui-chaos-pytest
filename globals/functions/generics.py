@@ -35,11 +35,17 @@ class GenericFunct:
             with open(diff_image_path, 'rb') as image_file:
                 allure.attach(image_file.read(), name="Diff Image", attachment_type=allure.attachment_type.PNG)
 
+            # Attach failure reason to Allure report with pixel differences
+            failure_reason = "Image comparison failed. Pixel values do not match."
+            allure.attach(failure_reason, name="Failure Reason", attachment_type=allure.attachment_type.TEXT)
+
             # Return False as the images are not identical
             return False
 
         except Exception as e:
-            print(f"Error comparing images: {e}")
+            error_message = f"Error comparing images: {e}"
+            allure.attach(error_message, name="Error", attachment_type=allure.attachment_type.TEXT)
+            print(error_message)
             return False
 
     @staticmethod

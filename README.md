@@ -65,7 +65,7 @@ Directory:
  
 2.  GitHub Actions for Execute Tests on Each Push to Master Would Helps to Make sure Tests are Good. 
     GitHub Pages for Allure Reporter
-
+    
 ```
 
 ## Tests Implementation Approach
@@ -82,7 +82,6 @@ Integrated Package.json to harnesss the benefits of Test Run Scripts
 
 To Execute Tests: All Tests Will Execute : Default OS : Mac OS : Preview App 
     
-    
 To Execute Tests:
 
     npm run test:pytest
@@ -97,11 +96,15 @@ To Build and Show Report: Required JDK/JRE in Local Machine / In CI Image
 ```
 In GitHub Actions Following Test will Execute All Tests and Generate Report
 
+Implemented Scheduled CI Job for Every 4 Hours TestRuns To Scale Stability - 100 % Stablility.
+
 Report will be Generated , View in GitHub Pages (Static Pages for Allure Report)
+
+Report URL: https://iamraajrsarwan.github.io/gui-chaos-pytest/index.html
 
 IMPORTANT: To Enable Report Feature , Repo must be in Public Visibility
 
-Report URL: https://iamraajrsarwan.github.io/gui-chaos-pytest/index.html
+CAUTION: In Allure Report Error Screenshot not attaching Properly - InProgress/WIP
 
 ```
 
@@ -110,7 +113,7 @@ Report URL: https://iamraajrsarwan.github.io/gui-chaos-pytest/index.html
 To Build and Show Report: Required JDK/JRE in Local
     allure serve allure-results | npm run allure:report
     
-![img.png](report.png)
+![img.png](report.png) - Can See Example Allure Report in Root of Project
 
 ```
 

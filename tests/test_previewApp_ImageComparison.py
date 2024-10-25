@@ -50,11 +50,14 @@ class TestImageComparisonSaveAs:
         """Test comparing IMAGE_1 and REF_Image."""
         image1_path = os.path.join(baseDir, "fixtures", "images", "IMAGE_1.png")
         image2_path = os.path.join(baseDir, "fixtures", "images", "REF_Image.png")
-        diff_image_path = os.path.join(baseDir, "fixtures", "images", "diff_image.png")
+        diff_image_path = os.path.join(baseDir, "fixtures", "screenshots", "diff_image.png")
 
         # Compare the images
         if not GenericFunct.compare_images(image1_path, image2_path, diff_image_path):
             assert False, "The images are not identical!"
+
+        # ASSERT DIFF IMAGE IS EXIST
+        PreviewAppFunct.assertcheckFileExists(diff_image_path)
 
 @allure.suite("Image Comparison Test with Preview App by EXPORT Method")
 class TestImageComparisonExportAs:
@@ -105,6 +108,9 @@ class TestImageComparisonExportAs:
         # Compare the images
         if not GenericFunct.compare_images(image1_path, image2_path, diff_image_path):
             assert False, "The images are not identical!"
+
+        # ASSERT DIFF IMAGE IS EXIST
+        PreviewAppFunct.assertcheckFileExists(diff_image_path)
 
 @pytest.fixture(scope="session", autouse=True)
 def test_tearDown():
