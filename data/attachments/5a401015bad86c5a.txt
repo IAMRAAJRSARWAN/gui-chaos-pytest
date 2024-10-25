@@ -1,1 +1,0 @@
-Error: The file '/Users/runner/work/gui-chaos-pytest/gui-chaos-pytest/fixtures/images/IMAGE_1' was not found.
