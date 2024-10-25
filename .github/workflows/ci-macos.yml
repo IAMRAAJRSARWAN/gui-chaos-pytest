@@ -26,15 +26,12 @@ jobs:
           python-version: '3.13'
 
       # Install Poetry and Allure
-      - name: Install Poetry, Allure, XvFB
+      - name: Install Poetry, Allure
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           poetry config virtualenvs.create false
           poetry install
           brew install allure
-          brew install Xvfb
-          Xvfb :99 &
-          export DISPLAY=:99
 
       # Run Tests
       - name: Run tests with pytest
