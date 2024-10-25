@@ -1,8 +1,0 @@
-Error During AverageHash Image Comparison: {exception}
-Preview app closed successfully.
-/Users/runner/work/gui-chaos-pytest/gui-chaos-pytest/fixtures/sourceImages/IMAGE_1.jpg RAJ
-IMAGE_1.jpg does not exist, skipping deletion.
-/Users/runner/work/gui-chaos-pytest/gui-chaos-pytest/fixtures/sourceImages/REF_Image.png RAJ
-Deleted REF_Image.png successfully.
-/Users/runner/work/gui-chaos-pytest/gui-chaos-pytest/fixtures/screenshots/DIFF_Image.png RAJ
-DIFF_Image.png does not exist, skipping deletion.
