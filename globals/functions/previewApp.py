@@ -18,13 +18,8 @@ class PreviewAppFunct:
             return False
 
     @staticmethod
-    def selectImage(baseDir, image_path):
+    def selectImage(image_path):
         """Method to select an image using pyautogui."""
-
-        image_path = baseDir + image_path
-
-        image_path = os.path.join(image_path)
-
 
         if not os.path.isfile(image_path):
             print(f"Error: The image file '{image_path}' does not exist.")
@@ -33,7 +28,7 @@ class PreviewAppFunct:
         directory, file_name = os.path.split(image_path)
 
         # Open the Preview application
-        if PreviewAppFunct.openApplication("Preview"):
+        if PreviewAppFunct.openApplication('Preview'):
             pyautogui.hotkey('command', 'o')
             time.sleep(1)  # Wait for the dialog to open
 
@@ -52,20 +47,17 @@ class PreviewAppFunct:
         """Method to save the opened image as a reference image."""
         # Open the "Save As" dialog in Preview
         pyautogui.hotkey('command', 'shift', 's')
-        time.sleep(1)  # Wait for the dialog to open
-        print(ref_fileName, '1')
+        time.sleep(2)  # Wait for the dialog to open
+
         # Type the reference image name
         pyautogui.write(ref_fileName, interval=0.05)
-        time.sleep(1)
+        time.sleep(2)
         pyautogui.press('enter')
         time.sleep(2)
 
     @staticmethod
-    def exportImageAsJPEG(export_file_name):
-        """
-        Method to export the currently opened image in Preview as JPG format.
-        param export_file_path: The full file path (including name)
-        """
+    def exportImageAsJPEG():
+        """Method to export the currently opened image in Preview as JPG format."""
 
         pyautogui.hotkey('command', 'shift', '/')
         time.sleep(1)
@@ -115,17 +107,13 @@ class PreviewAppFunct:
 
     @staticmethod
     def assertAppOpenState(actualState):
-        try:
-            assert actualState, "Failed to Open Preview application"
-        except FileNotFoundError as e:
-            print("Error Opening Application: {e}")
+        """Check if the application is open, raise an error if not."""
+        if not actualState:
+            raise AssertionError("Error: Failed to open the Preview application.")
 
     @staticmethod
     def assertcheckFileExists(filepath):
         """Check if the specified file exists and raise an exception if not."""
-        try:
-            if not os.path.isfile(filepath):
-                raise FileNotFoundError(f"Error: The file '{filepath}' was not found.")
-            return True
-        except FileNotFoundError as e:
-            print(e)
+        if not os.path.isfile(filepath):
+            raise FileNotFoundError(f"Error: The file '{filepath}' was not found.")
+        return True

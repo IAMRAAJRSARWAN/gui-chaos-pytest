@@ -1,2 +1,9 @@
-IMAGE_1 = "/fixtures/images/IMAGE_1.png"
-IMAGE_2 = "/fixtures/images/IMAGE_2.png"
+APPNAME = 'Preview'
+FIXTURES= 'fixtures'
+SOURCE_IMAGES = 'sourceImages'
+SCREENSHOTS = 'screenshots'
+IMAGE_1 = 'IMAGE_1.png'
+IMAGE_2 = 'IMAGE_2.png'
+REF_FILE_NAME = 'REF_Image.png'
+DIFF_FILE_NAME = 'DIFF_Image.png'
+EXP_FILE_NAME = 'IMAGE_1.jpg'
