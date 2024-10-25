@@ -75,6 +75,14 @@ Directory:
 
 ```
 
+## Image Comparison Approach
+```
+    Image Hash Python Packages has been used for Image Comparison
+    average Hash Algorithm
+    perceptual Hash Algorithm
+    Color Hash Algorithm
+```
+
 ## Usage
 ```
 Config Designed to Run Tests Only For Mac OS with Preview App
