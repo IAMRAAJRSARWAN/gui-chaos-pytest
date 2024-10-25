@@ -126,7 +126,6 @@ class GenericFunct:
         for directory, file_names in files_to_delete.items():
             for file_name in file_names:
                 file_path = os.path.join(baseDir, directory, file_name)
-                print(file_path, 'RAJ')
                 try:
                     if os.path.exists(file_path):
                         os.remove(file_path)

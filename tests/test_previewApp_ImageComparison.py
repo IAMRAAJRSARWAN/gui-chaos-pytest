@@ -99,7 +99,7 @@ class TestImageComparisonExportAs:
 
     @allure.step("Export the Image as JPEG Format")
     def test_export_JPEG_imageFile(self, baseDir):
-        """Save the opened image as a reference image."""
+        """Export The Image as JPEG Format"""
 
         image1_path = os.path.join(baseDir, FIXTURES, SOURCE_IMAGES, EXP_FILE_NAME)
 
