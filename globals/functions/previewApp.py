@@ -60,18 +60,18 @@ class PreviewAppFunct:
         """Method to export the currently opened image in Preview as JPG format."""
 
         pyautogui.hotkey('command', 'shift', '/')
-        time.sleep(1)
+        time.sleep(2)
 
         # Type 'Export' to search for the Export option
         pyautogui.write('Export', interval=0.1)
-        time.sleep(1)
+        time.sleep(2)
 
         pyautogui.press('down')
-        time.sleep(1)
+        time.sleep(2)
 
         # Press 'Return' to select Export from the menu
         pyautogui.press('enter')
-        time.sleep(1)
+        time.sleep(2)
 
         # Type the file name
         # Unstable Actions #Skipped
@@ -80,7 +80,7 @@ class PreviewAppFunct:
 
         # Press "Tab" to move to the file format dropdown
         pyautogui.press('tab', presses=4, interval=0.5)
-        time.sleep(1)
+        time.sleep(2)
 
         # Type 'j or jpeg' to select the "JPEG" option
         pyautogui.press('j')
@@ -88,7 +88,7 @@ class PreviewAppFunct:
 
         # Press "Tab" to move to Save Button
         pyautogui.press('tab', presses=3, interval=0.5)
-        time.sleep(1)
+        time.sleep(2)
 
         # # Press 'Enter' again to save the file
         pyautogui.press('enter')
