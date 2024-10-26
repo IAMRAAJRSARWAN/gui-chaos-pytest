@@ -1,5 +1,5 @@
 Error During AverageHash Image Comparison: {exception}
 Preview app closed successfully.
 IMAGE_1.jpg does not exist, skipping deletion.
-Deleted REF_Image.png successfully.
+REF_Image.png does not exist, skipping deletion.
 DIFF_Image.png does not exist, skipping deletion.
