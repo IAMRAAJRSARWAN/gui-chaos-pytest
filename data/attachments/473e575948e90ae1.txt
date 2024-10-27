@@ -1,0 +1,1 @@
+Error During AverageHash Image Comparison: {exception}
